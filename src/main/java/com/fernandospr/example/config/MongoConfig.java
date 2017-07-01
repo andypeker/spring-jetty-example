@@ -26,7 +26,7 @@ public class MongoConfig {
          * **/
         ServerAddress svrAddr = new ServerAddress("192.168.19.150", 27017);
         MongoCredential mongoCred = MongoCredential.createCredential("frankie", DB_NAME, "135317".toCharArray());
-        List<MongoCredential> mongoCreds = new ArrayList<>(Arrays.asList(mongoCred));
+        List<MongoCredential> mongoCreds = Arrays.asList(mongoCred);
         MongoClient mongoClt = new MongoClient(svrAddr, mongoCreds);
         return new SimpleMongoDbFactory(mongoClt, DB_NAME);
         
