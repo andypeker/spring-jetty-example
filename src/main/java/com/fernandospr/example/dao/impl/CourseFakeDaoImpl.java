@@ -15,7 +15,8 @@ public class CourseFakeDaoImpl implements CourseDao {
 	private static Integer id = 1;
 	static {
 		courses = new ArrayList<>(Arrays.asList(new Course("foo", 50, "baz"),
-												new Course("foo2", 30, "baz2")));
+												new Course("foo2", 30, "baz2"),
+												new Course("whyang", 30, "Math")));
 		for(Course course : courses) {
 			course.setId(id);
 			id++;
