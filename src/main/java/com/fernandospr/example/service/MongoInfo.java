@@ -1,6 +1,9 @@
 package com.fernandospr.example.service;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,6 +11,9 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
+//@Configuration
+//@ConfigurationProperties()
+@PropertySources({@PropertySource("classpath:mongodb.properties")})
 public class MongoInfo {
     
     @Value("${spring.data.mongodb.host}")
