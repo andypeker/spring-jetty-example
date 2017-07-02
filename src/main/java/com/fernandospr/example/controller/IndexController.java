@@ -1,5 +1,6 @@
 package com.fernandospr.example.controller;
 
+import com.fernandospr.example.service.MongoInfo;
 import com.fernandospr.example.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,8 +16,20 @@ public class IndexController {
     @Value("${example.message}")
     private String message;
     
+    @Value("${default.message}")
+    private String defMsg;
+    
+    @Autowired
+    private MongoInfo mongoInfo;
+    
     @Autowired
     private StudentService studentService;
+    
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @ResponseBody
+    public String defaultPage(){
+        return defMsg + "\n" + mongoInfo.outputInfo();
+    }
 
     @RequestMapping(value = "/message", method = RequestMethod.GET)
     @ResponseBody
