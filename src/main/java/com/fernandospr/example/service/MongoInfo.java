@@ -16,6 +16,10 @@ import org.springframework.stereotype.Component;
 @PropertySources({@PropertySource("classpath:mongodb.properties")})
 public class MongoInfo {
     
+    /****
+     * 没有使用prefix的自动方式。。。
+     *
+     * **/
     @Value("${spring.data.mongodb.host}")
     private String host;
     
